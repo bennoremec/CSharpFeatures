@@ -35,7 +35,6 @@ internal class MyAsyncDisposable : IAsyncDisposable
 
     public async ValueTask DisposeAsync()
     {
-        // do long running task
         await _asyncDisposableResource.DisposeAsync().ConfigureAwait(false);
     }
 }

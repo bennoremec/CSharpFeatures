@@ -1,6 +1,6 @@
 ﻿namespace CSharpNewFeatures.Tests;
 
-public class Range
+public class RangeTest
 {
     [Fact]
     public void Get2And3()
@@ -17,7 +17,7 @@ public class Range
     }
 
 
-    public IEnumerable<string> GetPeople(System.Range range)
+    public IEnumerable<string> GetPeople(Range range)
     {
         var people = new[] { "Peter", "Marcus", "Maria", "Hans" };
 
@@ -34,12 +34,13 @@ public class Range
         await foreach (var name in GetPeopleAsnyc(..3))
         {
             i++;
+            Assert.True(new[] { "Peter", "Marcus", "Maria" }.Contains(name), $"Name nicht Peter, Marcus oder Maria sondern {name}");
         }
 
         Assert.Equal(3, i);
     }
 
-    public async IAsyncEnumerable<string> GetPeopleAsnyc(System.Range range)
+    public async IAsyncEnumerable<string> GetPeopleAsnyc(Range range)
     {
         var people = new[] { "Peter", "Marcus", "Maria", "Hans" };
 

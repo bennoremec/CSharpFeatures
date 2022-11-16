@@ -20,6 +20,21 @@ public class PatternMatching
     [Fact]
     public void RelationalMatching()
     {
+        var person = new Person("Fritz", "Markus", "Müller", "Luzern", 5000);
+
+        var lohnklasse = person.Lohn switch
+        {
+            > 5000 => "A",
+            < 1000 => "C",
+            _ => "B"
+        };
+
+        Assert.Equal("B", lohnklasse);
+    }
+
+    [Fact]
+    public void PropertyMatching()
+    {
         var fritz = new Person("Fritz", "Markus", "Müller", "Luzern", 11000);
         var xaver = new Person("Xaver", "", "Arnold", "Schattdorf", 500);
 

@@ -8,7 +8,8 @@ public class Deconstruction
         var person = new Person("Elvis", "Aron", "Presley", "Tupelo", 50000);
 
         // Deconstruct the person object.
-        var (fName, lName, city, _) = person;
+        var (fName, lName, city, _) = person; //_ ist ein Discard
+
         Assert.Equal("Hallo Presley Elvis aus Tupelo!", $"Hallo {lName} {fName} aus {city}!");
     }
 }

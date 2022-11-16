@@ -9,6 +9,7 @@ public class Record
         Assert.Equal(elvis, new PersonRecord("Elvis", "Presley"));
         Assert.NotEqual(elvis, new PersonRecord("Paul", "McCartney"));
 
+        //Deconstructor
         var (firstName, lastname) = elvis;
         Assert.Equal("Elvis", firstName);
     }

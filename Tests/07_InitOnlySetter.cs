@@ -7,10 +7,12 @@ public class InitOnlySetter
     {
         var now = new WeatherObservation
         {
-            RecordedAt = DateTime.Now,
+            RecordedAt = new DateTime(2022, 11, 16),
             TemperatureInCelsius = 20,
             PressureInMillibars = 998.0m
         };
+
+        Assert.Equal(now.RecordedAt, new DateTime(2022, 11, 16));
 
         // Error! CS8852.
         //now.TemperatureInCelsius = 18;
@@ -31,14 +33,15 @@ public class InitOnlySetter
 
 public class WeatherObservation
 {
+/*    public WeatherObservation()
+    {
+        RecordedAt = DateTime.Now;
+    }*/
+
     public DateTime RecordedAt { get; init; }
     public decimal TemperatureInCelsius { get; init; }
 
     public decimal PressureInMillibars { get; init; }
     //ab c# 11, geht auch für Fields
     //public required decimal PressureInMillibars { get; init; }
-
-    public override string ToString() =>
-        $"At {RecordedAt} " +
-        $"Temp = {TemperatureInCelsius}, with {PressureInMillibars} pressure";
 }

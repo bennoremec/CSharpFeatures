@@ -12,9 +12,9 @@ public class RawStringLiterals
     }
 
     [Fact]
-    public void RawStringLiteralTest()
+    public void RawStringLiteral()
     {
-        _testOutputHelper.WriteLine("*** Raw string literals from C# 11 ***");
+        _testOutputHelper.WriteLine("***************** Raw string literals from C# 11 *****************");
         //the newline from the first and last line aren't included
         var longMessage = """
     This is a long message.
@@ -23,11 +23,11 @@ public class RawStringLiterals
                 more than others.
     Some should start at the first column.
     Some have "quoted text" in them.
-    And Some have funky characters like \n or \t without escaping
+    And Some have funky characters like \n or \t without escaping.
     """;
 
         _testOutputHelper.WriteLine(longMessage);
-        _testOutputHelper.WriteLine("***");
+        _testOutputHelper.WriteLine("******************************************************************");
     }
 
 

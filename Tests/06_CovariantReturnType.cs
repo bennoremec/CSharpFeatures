@@ -1,11 +1,27 @@
 ﻿namespace CSharpNewFeatures.Tests;
 
-public abstract class CovariantReturnType
+public class CovariantReturnType
+{
+    [Fact]
+    public void CovRetType()
+    {
+        BaseClass a = new MyClass();
+        var aNames = a.GetNames();
+
+        var b = new MyClass();
+        var bNames = b.GetNames();
+
+        Assert.IsType<List<string>>(bNames);
+        //Assert.IsType<IEnumerable<string>>(bNames);
+    }
+}
+
+public abstract class BaseClass
 {
     public abstract IEnumerable<string> GetNames();
 }
 
-public class MyReturnType : CovariantReturnType
+public class MyClass : BaseClass
 {
     // target type new()
     private readonly List<string> _theList = new();
